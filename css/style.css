@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* || VARIABLES */
+:root {
+    /* Fonts and text sizing */
+    --FF: "Roboto Mono", monospace;
+    --FF-HEAD: var(--FF);
+    --FF-FOOT: var(--FF);
+    --FS: clamp(1rem, 2.2vh, 1.5rem);
+    --FS-HEAD: clamp(2rem, 4.4vh, 4rem);
+    --FS-FOOT: var(--FS);
+
+    /* Colours */
+    --BGCOL: #E3FDFD;
+    --BGCOL-ALT1: #CBF1F5;
+    --BGCOL-ALT2: #71C9CE;
+    --TEXTCOL: #222;
+    --RED: #f85050;
+    --BLUE: #0c77db;
+    --GREEN: #38E54D;
+    --YELLOW: #FFED00;
+
+    /* Animations/transitions */
+    --GAME-BUT-TRANSITION: all 0.3s;
+}
+
+/* || UTILITY CLASSES */
+.disabled {
+    pointer-events: none;
+}
+
+
+/* || GENERAL STYLES */
+body {
+    background-color: var(--BGCOL);
+    color: var(--TEXTCOL);
+
+    font-family: "Roboto Mono", monospace;
+    font-size: var(--FS);
+
+    height: 100vh;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+/* || HEADER */
+.header {
+    background-color: var(--BGCOL-ALT1);
+
+    padding: 0.75rem;
+    width: 100%;
+
+    box-shadow: 0 0 10px var(--BGCOL-ALT2);
+
+    text-align: center;
+}
+
+.header__h1 {
+    font-size: var(--FS-HEAD);
+}
+
+/* || MAIN */
+.main {
+    flex-grow: 1;
+
+    width: min(50vh, 80vw);
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+}
+
+/* || GAME HELP */
+.game-help {
+    display: flex;
+    place-items: center;
+    place-content: center;
+}
+
+.game-help__button {
+    border: 2px solid var(--TEXTCOL);
+    border-radius: 1rem;
+
+    width: fit-content;
+    height: fit-content;
+}
+
+.game-help__button:hover,
+.game-help__button:focus {
+    animation: start-hover 0.3s ease 0s 1 normal forwards;
+    cursor: pointer;
+}
+
+@keyframes start-hover {
+    100% {
+        transform: scale(1.05);
+        box-shadow: 0 0 1px var(--TEXTCOL);
+    }
+}
+
+.game-help__button:active {
+    transform: scale(1.05);
+    box-shadow: 0 0 1px var(--TEXTCOL);
+}
+
+.game-help__p {
+    padding: 0.5rem;
+}
+
+/* || GAME */
+.game {
+    height: min(50vh, 80vw);
+    width: min(50vh, 80vw);
+
+    justify-self: center;
+    align-self: center;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-items: center;
+}
+
+.game__square {
+    height: 100%;
+    width: 100%;
+
+    opacity: 0.8;
+}
+
+.game__square:active {
+    box-shadow: none;
+    scale: 0.985;
+}
+
+.game__square--red {
+    background-color: var(--RED);
+    box-shadow: 0 0 10px var(--RED);
+}
+
+.game__square--blue {
+    background-color: var(--BLUE);
+    box-shadow: 0 0 10px var(--BLUE);
+}
+
+.game__square--green {
+    background-color: var(--GREEN);
+    box-shadow: 0 0 10px var(--GREEN);
+}
+
+.game__square--yellow {
+    background-color: var(--YELLOW);
+    box-shadow: 0 0 10px var(--YELLOW);
+}
+
+.game__square--top-left {
+    justify-self: right;
+    align-self: flex-end;
+}
+
+.game__square--top-left:hover,
+.game__square--top-left:focus {
+    transform: scale(1.03) translateX(-2px) translateY(-2px);
+    transition: var(--GAME-BUT-TRANSITION);
+    animation: opaque 0.3s ease 0s 1 normal forwards;
+}
+
+.game__square--top-right {
+    justify-self: left;
+    align-self: flex-end;
+}
+
+.game__square--top-right:hover,
+.game__square--top-right:focus {
+    transform: scale(1.03) translateX(2px) translateY(-2px);
+    transition: var(--GAME-BUT-TRANSITION);
+    animation: opaque 0.3s ease 0s 1 normal forwards;
+}
+
+.game__square--bottom-left {
+    justify-self: right;
+    align-self: flex-start;
+}
+
+.game__square--bottom-left:hover,
+.game__square--bottom-left:focus {
+    transform: scale(1.03) translateX(-2px) translateY(2px);
+    transition: var(--GAME-BUT-TRANSITION);
+    animation: opaque 0.3s ease 0s 1 normal forwards;
+}
+
+.game__square--bottom-right {
+    justify-self: left;
+    align-self: flex-start;
+}
+
+.game__square--bottom-right:hover,
+.game__square--bottom-right:focus {
+    transform: scale(1.03) translateX(2px) translateY(2px);
+    transition: var(--GAME-BUT-TRANSITION);
+    animation: opaque 0.3s ease 0s 1 normal forwards;
+}
+
+@keyframes opaque {
+    100% {
+        opacity: 1;
+    }
+}
+
+/* || SCORES */
+.scores {
+    width: 100%;
+}
+
+.scores__high {
+    font-weight: 800;
+}
+
+/* || FOOTER */
+.footer {
+    background-color: var(--BGCOL-ALT2);
+
+    font-size: var(--FS-FOOT);
+
+    text-align: center;
+    padding: 0.75rem;
+    width: 100%;
+
+    box-shadow: 0 0 10px var(--BGCOL-ALT2);
+}
+
+.footer__a:any-link {
+    color: var(--TEXTCOL);
+}
