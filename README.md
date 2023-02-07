@@ -1,0 +1,1 @@
+A memorisation game to develop my html5, css3 and vanilla JS skills.
