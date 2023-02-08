@@ -26,9 +26,12 @@
     --BLUE: #0c77db;
     --GREEN: #38E54D;
     --YELLOW: #FFED00;
+    --SUCCESS-COL: #16FF00;
+    --FAIL-COL: #FF1E1E;
 
     /* Animations/transitions */
     --GAME-BUT-TRANSITION: all 0.3s;
+    --BUTTON-ACT-SCALE: scale(1.1);
 }
 
 /* || UTILITY CLASSES */
@@ -108,12 +111,16 @@ body {
 }
 
 .game-help__button:active {
+    scale: 0.97;
+}
+
+.game-help__button:active {
     transform: scale(1.05);
     box-shadow: 0 0 1px var(--TEXTCOL);
 }
 
 .game-help__p {
-    padding: 0.5rem;
+    padding: 0.8rem;
 }
 
 /* || GAME */
@@ -130,6 +137,24 @@ body {
     place-items: center;
 }
 
+.game--success {
+    box-shadow: 0 0 100px var(--SUCCESS-COL);
+    transform: scale(0.98);
+    transition: all 0.5s ease;
+}
+
+.game--fail {
+    box-shadow: 0 0 100px var(--FAIL-COL);
+    transform: scale(0.98);
+    transition: all 0.5s ease;
+}
+
+.game--normal {
+    box-shadow: none;
+    transform: scale(1);
+    transition: all 0.5s ease;
+}
+
 .game__square {
     height: 100%;
     width: 100%;
@@ -142,78 +167,88 @@ body {
     scale: 0.985;
 }
 
-.game__square--red {
+.game__red {
     background-color: var(--RED);
     box-shadow: 0 0 10px var(--RED);
+
+    justify-self: right;
+    align-self: flex-end;
 }
 
-.game__square--blue {
+.game__red:hover,
+.game__red:focus {
+    transform: scale(1.03) translateX(-1.5%) translateY(-1.5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
+}
+
+.game__red--activate {
+    transform: var(--BUTTON-ACT-SCALE) translateX(-5%) translateY(-5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
+}
+
+.game__blue {
     background-color: var(--BLUE);
     box-shadow: 0 0 10px var(--BLUE);
+
+    justify-self: left;
+    align-self: flex-end;
 }
 
-.game__square--green {
+.game__blue:hover,
+.game__blue:focus {
+    transform: scale(1.03) translateX(1.5%) translateY(-1.5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
+}
+
+.game__blue--activate {
+    transform: var(--BUTTON-ACT-SCALE) translateX(5%) translateY(-5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
+}
+
+.game__green {
     background-color: var(--GREEN);
     box-shadow: 0 0 10px var(--GREEN);
+
+    justify-self: right;
+    align-self: flex-start;
 }
 
-.game__square--yellow {
+.game__green:hover,
+.game__green:focus {
+    transform: scale(1.03) translateX(-1.5%) translateY(1.5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
+}
+
+.game__green--activate {
+    transform: var(--BUTTON-ACT-SCALE) translateX(-5%) translateY(5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
+}
+
+.game__yellow {
     background-color: var(--YELLOW);
     box-shadow: 0 0 10px var(--YELLOW);
-}
 
-.game__square--top-left {
-    justify-self: right;
-    align-self: flex-end;
-}
-
-.game__square--top-left:hover,
-.game__square--top-left:focus {
-    transform: scale(1.03) translateX(-2px) translateY(-2px);
-    transition: var(--GAME-BUT-TRANSITION);
-    animation: opaque 0.3s ease 0s 1 normal forwards;
-}
-
-.game__square--top-right {
-    justify-self: left;
-    align-self: flex-end;
-}
-
-.game__square--top-right:hover,
-.game__square--top-right:focus {
-    transform: scale(1.03) translateX(2px) translateY(-2px);
-    transition: var(--GAME-BUT-TRANSITION);
-    animation: opaque 0.3s ease 0s 1 normal forwards;
-}
-
-.game__square--bottom-left {
-    justify-self: right;
-    align-self: flex-start;
-}
-
-.game__square--bottom-left:hover,
-.game__square--bottom-left:focus {
-    transform: scale(1.03) translateX(-2px) translateY(2px);
-    transition: var(--GAME-BUT-TRANSITION);
-    animation: opaque 0.3s ease 0s 1 normal forwards;
-}
-
-.game__square--bottom-right {
     justify-self: left;
     align-self: flex-start;
 }
 
-.game__square--bottom-right:hover,
-.game__square--bottom-right:focus {
-    transform: scale(1.03) translateX(2px) translateY(2px);
+.game__yellow:hover,
+.game__yellow:focus {
+    transform: scale(1.03) translateX(1.5%) translateY(1.5%);
     transition: var(--GAME-BUT-TRANSITION);
-    animation: opaque 0.3s ease 0s 1 normal forwards;
+    opacity: 1;
 }
 
-@keyframes opaque {
-    100% {
-        opacity: 1;
-    }
+.game__yellow--activate {
+    transform: var(--BUTTON-ACT-SCALE) translateX(5%) translateY(5%);
+    opacity: 1;
+    transition: var(--GAME-BUT-TRANSITION);
 }
 
 /* || SCORES */

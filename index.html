@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Game</title>
-    <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/main.js"></script>
+
 </head>
 <body>
 
     <header class="header">
         <h1 class="header__h1">Simon Says!</h1>
-        <p class="header__p">How long can you last??</p>
+        <p class="header__p">How much can you remember??</p>
     </header>
 
     <main class="main">
@@ -25,18 +26,18 @@
 
         </section>
 
-        <section class="game">
+        <section class="game game--normal">
 
-            <div class="game__square game__square--top-left game__square--red"></div>
-            <div class="game__square game__square--top-right game__square--blue"></div>
-            <div class="game__square game__square--bottom-left game__square--green"></div>
-            <div class="game__square game__square--bottom-right game__square--yellow"></div>
+            <div class="game__square game__red" id="red"></div>
+            <div class="game__square game__blue" id="blue"></div>
+            <div class="game__square game__green" id="green"></div>
+            <div class="game__square game__yellow" id="yellow"></div>
 
         </section>
 
         <section class="scores">
-            <p class="scores__curr">Current Level: </p>
-            <p class="scores__high">High Score:</p>
+            <p class="scores__curr">Current Level: <span class="curr-score">0</span></p>
+            <p class="scores__high">High Score: <span class="hi-score">0</span></p>
         </section>
 
     </main>
