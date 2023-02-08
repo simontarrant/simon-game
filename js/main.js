@@ -64,16 +64,16 @@ class Game {
         this.reset();
         const startBtn = document.querySelector(".game-help__start");
         startBtn.querySelector("p").innerText = "Play Again?";
-        this.animateLevel("fail");
+        this.animateLevelComplete("fail");
     }
 
     levelPassed() {
         console.log("level passed");
-        this.animateLevel("success");
+        this.animateLevelComplete("success");
         this.nextLevel();
     }
 
-    animateLevel(successOrFail) {
+    animateLevelComplete(successOrFail) {
 
         const gameClass = "game--" + successOrFail;
         const gameClassNormal = "game--normal";
@@ -155,6 +155,7 @@ class Game {
     updateScores() {
         const currScoreElem = document.querySelector(".curr-score");
         const hiScoreElem = document.querySelector(".hi-score");
+
         currScoreElem.innerText = this.level;
         hiScoreElem.innerText = this.hiScore;
     } 
